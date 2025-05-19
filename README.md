@@ -6,6 +6,7 @@ Each program focuses on a specific data structure or concept using java collecti
 ##Topics Covered
 -ArrayList
 -HashSet
+-HashMap
 *(More coming soon...)*
 
 ##How to Run
