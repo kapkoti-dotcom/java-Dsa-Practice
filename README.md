@@ -7,6 +7,7 @@ Each program focuses on a specific data structure or concept using java collecti
 -ArrayList
 -HashSet
 -HashMap
+-Linear Searching
 *(More coming soon...)*
 
 ##How to Run
