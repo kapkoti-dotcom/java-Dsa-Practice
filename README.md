@@ -8,6 +8,7 @@ Each program focuses on a specific data structure or concept using java collecti
 -HashSet
 -HashMap
 -Linear Searching
+-BinarySearching
 *(More coming soon...)*
 
 ##How to Run
