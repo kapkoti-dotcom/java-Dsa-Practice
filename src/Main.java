@@ -1,21 +1,35 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+
 public class Main {
     public static void main(String[] args) {
-        int[]arr={1,2,1,3,5,6,4};
-        int peakIndex=Main(arr);
-        System.out.println("peak element"+peakIndex+",value"+Main(arr));
-
-    }
-    static int Main(int[]arr){
-        int left=0;
-        int right=arr.length-1;
-        while(left<right){
-            int mid=left+(right-left)/2;
-            if(arr[mid]>arr[mid+1]){
-                right= mid;
-            } else{
-                left=mid+1;
-            }
+        int[] arr = {5, 1, 4, 2, 8};
+        bubbleSort(arr);
+        System.out.println("Sorted array:");
+        for (int num : arr) {
+            System.out.println(num + " ");
         }
-        return left;
     }
-      }
+    static void bubbleSort(int[]arr){
+        int n= arr.length;
+        for(int i=0;i<n-1;i++){
+            boolean swapped=false;
+            for(int j=0;j<n-1-i;j++){
+                if(arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                    swapped=true;
+                }
+            }
+            if(!swapped)break;
+        }
+    }
+
+
+
+
+}
