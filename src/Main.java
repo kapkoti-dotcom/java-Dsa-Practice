@@ -1,40 +1,29 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5};
-        int totalSwaps = Main(arr);
-        System.out.println("total number of swaps:" + totalSwaps);
+        int[] arr = {9, 5, 1, 4, 3};
+        isMain(arr);
+        System.out.println("sorted array");
+        for (int num : arr) {
+            System.out.println(num + "");
+        }
     }
 
-    public static int Main(int[] arr) {
+    static void isMain(int[] arr) {
         int n = arr.length;
-        int swapCount = 0;
-        boolean swapped=false;
 
         for (int i = 0; i < n - 1; i++) {
-            for (int j = 0; j < n - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                    swapCount++;
-                    swapped=true;
+            int si = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[si]) {
+                    si = j;
+
                 }
             }
-            if(!swapped){
-                break;
-            }
+
+
+            int temp = arr[si];
+            arr[si] = arr[i];
+            arr[i] = temp;
         }
-        return swapCount;
     }
 }
-
-
-
-
-
