@@ -1,9 +1,23 @@
 public class Main {
+    public static boolean isPalindrome(String str) {
+
+        if (str.length() == 0 || str.length() == 1) {
+            return true;
+        }
+
+        if (str.charAt(0) != str.charAt(str.length() - 1)) {
+            return false;
+        }
+
+        return isPalindrome(str.substring(1, str.length() - 1));
+    }
+
     public static void main(String[] args) {
-       StringBuilder sb = new StringBuilder("Google");
-       sb.insert(0,"Hello ");
-       sb.delete(sb.length()-2,sb.length());
-       sb.reverse();
-        System.out.println(sb.toString());
+        String input = "madam";
+        if (isPalindrome(input)) {
+            System.out.println(input + " is a Palindrome.");
+        } else {
+            System.out.println(input + " is NOT a Palindrome.");
+        }
     }
 }
