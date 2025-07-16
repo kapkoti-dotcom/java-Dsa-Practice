@@ -1,17 +1,17 @@
-class Main {
-    public static double posAverage(int[] arr) {
-        // Code here
-        int n=arr.length;
-        double ans=0.0;
-        int count=0;
-        for(int i=0;i<n;i++){
-            if(arr[i]>=0){
-                count++;
-                ans+=arr[i];
-            }
-        }
-        if(count<=0)return 0.0;
-        double avg=ans/count;
-        return avg;
-    }
-}
+public class Main{
+      public static void main(String[]args){
+          skipChar("","baccad");
+      }
+      public static void skipChar(String p,String up){
+          if(up.isEmpty()){
+              System.out.println(p);
+              return;
+          }
+          char ch=up.charAt(0);
+          if(ch=='a'){
+              skipChar(p,up.substring(1));
+          }else{
+              skipChar(p+ch,up.substring(1));
+          }
+          }
+      }
