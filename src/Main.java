@@ -1,17 +1,17 @@
+import java.util.ArrayList;
+
 public class Main{
       public static void main(String[]args){
-          skipChar("","baccad");
+          System.out.println(countSubsequences("","abc"));
       }
-      public static void skipChar(String p,String up){
+    static int countSubsequences(String p,String up){
           if(up.isEmpty()){
-              System.out.println(p);
-              return;
+              return 1;
           }
           char ch=up.charAt(0);
-          if(ch=='a'){
-              skipChar(p,up.substring(1));
-          }else{
-              skipChar(p+ch,up.substring(1));
-          }
-          }
+          int left=countSubsequences(p+ch,up.substring(1));
+          int right=countSubsequences(p,up.substring(1));
+          return left+right;
+
+     }
       }
