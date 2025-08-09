@@ -1,27 +1,21 @@
-import java.util.ArrayList;
-import java.util.List;
-
 class Solution {
-    public static  void main(String[] args) {
-        String s="abcabcdd";
-        int start=0;
-        int end=0;
-        int max_length=0;
-        List<Character> list=new ArrayList<Character>();
-        while(end<s.length()){
-            if(!list.contains(s.charAt(end))){
-                list.add(s.charAt(end));
-                end++;
-                max_length=Math.max(max_length,list.size());
-
+    public static int maxProfit(int[] prices) {
+        int minPrice=Integer.MAX_VALUE;
+        int maxProfit=0;
+        for(int price:prices){
+            if(price<minPrice){
+                minPrice=price;
             }
-            else{
-                list.remove(0);
-                start++;
+            int profitToday=price-minPrice;
+            if(profitToday>maxProfit){
+                maxProfit=profitToday;
             }
-
-
         }
-        System.out.println( max_length);
+        return maxProfit;
+
+    }
+    public static void main(String[] args) {
+        int[] prices = {7, 1, 5, 3, 6, 4};
+        System.out.println("Max Profit: " + maxProfit(prices));
     }
 }
