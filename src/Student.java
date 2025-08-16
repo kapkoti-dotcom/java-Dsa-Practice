@@ -1,42 +1,36 @@
 class Student {
-    String name;
-    int rollno;
-    double marks;
+    String name;         // instance variable (alag-alag object ke liye alag)
+    int age;
+    static String school = "ABC School";  // static variable (sab objects ke liye same)
 
-    void displayInfo() {
-        System.out.println("Name:" + name);
-        System.out.println("ROLLno:" + rollno);
-        System.out.println("Marks:" + marks);
+    // Constructor
+    Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // static method
+    static void changeSchool(String newSchool) {
+        school = newSchool;  // static method can only access static data
+    }
+
+    void display() {
+        System.out.println(name + " | " + age + " | " + school);
     }
 
 
-        public static void main(String[] args) {
-            Student s1=new Student();
-            s1.name="himanshi";
-            s1.rollno=23;
-            s1.marks=35.6;
-            s1.displayInfo();
 
-        }
-    }
-// 2 code
-class car {
-    String brand;
-    String model;
-    int price;
-
-     car(String b, String m, int p) {
-        brand = b;
-        model = m;
-        price = p;
-    }
-    void display(){
-        System.out.println("brand:"+brand+",model:"+model+",price:"+price);
-    }
-}
-public class Student {
     public static void main(String[] args) {
-        car c=new car("mahindra", "sz",2034);
-        c.display();
+        Student s1 = new Student("Himanshi", 19);
+        Student s2 = new Student("Riya", 20);
+
+        s1.display();
+        s2.display();
+
+        // Change school using static method
+        Student.changeSchool("XYZ School");
+
+        s1.display();
+        s2.display();
     }
 }
