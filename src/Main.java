@@ -1,35 +1,27 @@
 class Main{
-    public int[] searchRange(int[] nums, int target) {
-        int res[]=new int[2];
-        int first=binarySearch(nums,target,true);
-        int last=binarySearch(nums,target,false);
-        res[0]=first;
-        res[1]=last;
-        return res;
-
+    public static void main(String[] args) {
+        int arr[]={10,30,25,45};
+        findMaxMin(arr);
 
     }
-    static int binarySearch(int arr[],int target,boolean isFirst){
-        int ans=-1;
-        int start=0;
-        int end= arr.length-1;
-        while(start<=end){
-            int mid=start+(end-start)/2;
-            if(arr[mid]==target){
-                ans= mid;
-                if(isFirst){
-                    end=mid-1;
-                }else{
-                    start=mid+1;
-                }
-            }else if(arr[mid]<target){
-                start=mid+1;
-            }else{
-                end=mid-1;
+    static void findMaxMin(int arr[]){
+        if(arr.length==0) {
+            System.out.println("Array is empty");
+            return;
+
+        }
+        int Max_val=arr[0];
+        int Min_val=arr[0];
+        for(int i=1;i<arr.length;i++){
+            if(arr[i]>Max_val){
+                Max_val=arr[i];
+            }
+            if(arr[i]<Min_val){
+                Min_val=arr[i];
             }
 
         }
-        return ans;
-
+        System.out.println("maximum element"+Max_val);
+        System.out.println("minimum element"+Min_val);
     }
 }
