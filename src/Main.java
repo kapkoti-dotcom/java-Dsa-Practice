@@ -3,8 +3,8 @@ import java.util.Arrays;
 class Main{
     public static void main(String[] args) {
         int arr[] = {10, 30, 25, 45};
-        ReverseArray(arr);
-        System.out.println("reverse array"+ Arrays.toString(arr));
+        findSecondLargest(arr);
+
     }
        /* findMaxMin(arr);
     static void findMaxMin(int arr[]){
@@ -28,7 +28,7 @@ class Main{
         System.out.println("minimum element"+Min_val);
     }
 }*/
-static void ReverseArray(int arr[]){
+/*static void ReverseArray(int arr[]){
     int left=0;
     int right=arr.length-1;
     while(left<right) {
@@ -39,5 +39,24 @@ static void ReverseArray(int arr[]){
         left++;
         right--;
     }
+}
+}*/
+static void findSecondLargest(int[]arr){
+    if(arr.length<2){
+        System.out.println("array should have atleast two elements");
+        return ;
+    }
+    int largest=Integer.MIN_VALUE;
+    int secondlargest=Integer.MIN_VALUE;
+    for(int i=0;i<arr.length;i++){
+        if(arr[i]>largest){
+            secondlargest=largest;
+            largest=arr[i];
+        } else if (arr[i]>secondlargest&&arr[i]!=largest) {
+            secondlargest=arr[i];
+            
+        }
+    }
+    System.out.println("largest element "+secondlargest);
 }
 }
