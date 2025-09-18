@@ -2,8 +2,13 @@ import java.util.Arrays;
 
 class Main{
     public static void main(String[] args) {
-        int arr[] = {10, 30, 25, 45};
-        findSecondLargest(arr);
+        int arr[] = {10, 30, 25, 45,35,555,};
+       int index= jumpsearch(arr,35);
+        if(index==-1){
+            System.out.println("element not found");
+        }else{
+            System.out.println("element found at index:"+index);
+        }
 
     }
        /* findMaxMin(arr);
@@ -41,7 +46,7 @@ class Main{
     }
 }
 }*/
-static void findSecondLargest(int[]arr){
+/*static void findSecondLargest(int[]arr){
     if(arr.length<2){
         System.out.println("array should have atleast two elements");
         return ;
@@ -59,4 +64,24 @@ static void findSecondLargest(int[]arr){
     }
     System.out.println("largest element "+secondlargest);
 }
+}*/
+public static int jumpsearch(int[]arr,int target){
+    int n=arr.length;
+    int bs=(int)Math.sqrt(n);
+    int start=0;
+    int end=bs;
+    while(end<n&&arr[end]<=target){
+        start=end;
+        end+=bs;
+        if(end>n){
+            end=n;
+        }
+    }int res=-1;
+    for(int i=start;i<end;i++){
+        if(target==arr[i]){
+                res=i;
+        }
+    }
+    return res;
+    }
 }
