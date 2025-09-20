@@ -1,25 +1,30 @@
-public class test {
+public class test{
     public static void main(String[] args) {
-        int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        System.out.println("Maximum Subarray Sum = " + kadaneAlgo(arr));
+        int[] arr={1,2,3,4,6};
+        int target=6;
+        int[] result = twoSum(arr, target);
 
-    }
-
-  static int kadaneAlgo(int[] arr) {
-        int cs = 0;
-        int ms = arr[0];
-        for (int i = 0; i < arr.length; i++) {
-            cs += arr[i];
-            if (cs > ms) {
-                ms = cs;
-
-            }
-            if (cs < 0) {
-                cs = 0;
-            }
+        if (result.length > 0) {
+            System.out.println("Pair found: " + result[0] + ", " + result[1]);
+        } else {
+            System.out.println("No pair found!");
         }
 
+    }
+     static int []twoSum(int[]arr,int target){
+        int left=0,right=arr.length-1;
+        while(left<right){
+            int sum=arr[left]+arr[right];
+            if(sum==target){
+                return new int[]{arr[left],arr[right]};
+            } else if (sum<target) {
+                left++;
 
-        return ms;
+            }
+            else{
+                right--;
+            }
+        }
+        return new int[]{};
     }
 }
