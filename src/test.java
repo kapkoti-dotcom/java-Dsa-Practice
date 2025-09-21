@@ -1,17 +1,17 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class test{
     public static void main(String[] args) {
-        int[] arr={1,2,3,4,6};
-        int target=6;
-        int[] result = twoSum(arr, target);
+        int[] arr = {-1, 0, 1, 2, -1, -4};
+        System.out.println(threeSum(arr));
 
-        if (result.length > 0) {
-            System.out.println("Pair found: " + result[0] + ", " + result[1]);
-        } else {
-            System.out.println("No pair found!");
-        }
+
+
 
     }
-     static int []twoSum(int[]arr,int target){
+     /*static int []twoSum(int[]arr,int target){
         int left=0,right=arr.length-1;
         while(left<right){
             int sum=arr[left]+arr[right];
@@ -27,4 +27,31 @@ public class test{
         }
         return new int[]{};
     }
+}*/
+public static List<List<Integer>>threeSum(int[]nums){
+    List<List<Integer>>result=new ArrayList<>();
+    Arrays.sort(nums);
+    for(int i=0;i< nums.length-2;i++){
+        if(i>0&&nums[i]==nums[i-1])continue;
+        int left=i+1,right= nums.length-1;
+        while(left<right){
+            int sum=nums[i]+nums[left]+nums[right];
+            if(sum==0){
+                result.add(Arrays.asList(nums[i],nums[left],nums[right]));
+                while(left<right&&nums[left]==nums[left+1])left++;
+                while(left<right&&nums[right]==nums[right-1])right--;
+                left++;
+                right--;
+            } else if (sum<0) {
+                left++;
+                
+            }else{
+                right--;
+            }
+
+        }
+
+    }
+    return result;
+}
 }
