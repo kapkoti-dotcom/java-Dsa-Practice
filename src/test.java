@@ -2,33 +2,32 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class test{
+public class test {
     public static void main(String[] args) {
-        int[] arr = {-1, 0, 1, 2, -1, -4};
-        System.out.println(threeSum(arr));
-
-
+        int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+        System.out.println(maxArea(height));
 
 
     }
-     /*static int []twoSum(int[]arr,int target){
-        int left=0,right=arr.length-1;
-        while(left<right){
-            int sum=arr[left]+arr[right];
-            if(sum==target){
-                return new int[]{arr[left],arr[right]};
-            } else if (sum<target) {
-                left++;
 
-            }
-            else{
-                right--;
-            }
-        }
-        return new int[]{};
-    }
+    /*static int []twoSum(int[]arr,int target){
+       int left=0,right=arr.length-1;
+       while(left<right){
+           int sum=arr[left]+arr[right];
+           if(sum==target){
+               return new int[]{arr[left],arr[right]};
+           } else if (sum<target) {
+               left++;
+
+           }
+           else{
+               right--;
+           }
+       }
+       return new int[]{};
+   }
 }*/
-public static List<List<Integer>>threeSum(int[]nums){
+/*public static List<List<Integer>>threeSum(int[]nums){
     List<List<Integer>>result=new ArrayList<>();
     Arrays.sort(nums);
     for(int i=0;i< nums.length-2;i++){
@@ -54,4 +53,21 @@ public static List<List<Integer>>threeSum(int[]nums){
     }
     return result;
 }
+}*/
+    public static int maxArea(int[] height) {
+        int maxArea = 0;
+        int left = 0, right = height.length - 1;
+
+        while (left < right) {
+            int area = Math.min(height[left], height[right]) * (right - left);
+            maxArea = Math.max(maxArea, area);
+
+            if (height[left] < height[right]) left++;
+            else right--;
+        }
+
+        return maxArea;
+    }
+
 }
+
