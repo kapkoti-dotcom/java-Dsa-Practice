@@ -1,11 +1,18 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+
+
+
 
 public class test {
     public static void main(String[] args) {
-        int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
-        System.out.println(maxArea(height));
+        int []arr={2,7,1,5,0,1,12};
+        pigonhole(arr);
+
+
+        System.out.println("array"+Arrays.toString(arr));
+
+
 
 
     }
@@ -54,7 +61,7 @@ public class test {
     return result;
 }
 }*/
-    public static int maxArea(int[] height) {
+    /*public static int maxArea(int[] height) {
         int maxArea = 0;
         int left = 0, right = height.length - 1;
 
@@ -69,5 +76,62 @@ public class test {
         return maxArea;
     }
 
+}*/
+    //transpose of matrix
+   /* public void rotate (int[][]matrix){
+        int n=matrix.length;
+        transpose(matrix,n);
+        // reverse rows
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n/2;j++){
+                int temp=matrix[i][j];
+                matrix[i][j]=matrix[i][n-1-j];
+                matrix[i][n-1-j]=temp;
+            }
+        }
+    }
+    static  void swap(int matrix[][],int i,int j){
+        int temp=matrix[i][j];
+        matrix[i][j]=matrix[j][i];
+        matrix[j][i]=temp;
+    }
+static void transpose(int matrix[][],int n){
+    for(int i=0;i<n;i++){
+        for(int j=0;j<i;j++){
+            swap(matrix,i,j);
+        }
+    }
 }
-
+}*/
+public  static void pigonhole(int []arr){
+    int n=arr.length;
+    int maxEl=Integer.MIN_VALUE;
+    int minEl=Integer.MAX_VALUE;
+    for(int i=0;i<n;i++){
+        if(arr[i]>maxEl){
+            maxEl=arr[i];
+        }
+        if(arr[i]<minEl){
+            minEl=arr[i];
+        }
+    }
+    if(maxEl==Integer.MIN_VALUE||minEl==Integer.MAX_VALUE){
+        System.out.println("empty array");
+        return;
+    }
+int size=maxEl-minEl+1;
+    int pigonhole[]=new int[size];
+    for(int i=0;i<n;i++){
+        int index=arr[i]-minEl;
+        pigonhole[index]++;
+    }
+    int insertionIndex=0;
+    for(int j=0;j<size;j++){
+        while(pigonhole[j]>0){
+            arr[insertionIndex]=j+minEl;
+            insertionIndex++;
+            pigonhole[j]--;
+        }
+    }
+}
+}
